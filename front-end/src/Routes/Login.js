@@ -24,6 +24,7 @@ const Login = ()=>{
             <img src={logo} alt='aurora university logo'/>
             <form onSubmit={handleSubmit}>
                 <label for="email">Email</label>
+
                 <input value={email}onChange={(e)=> setEmail(e.target.value)} required/>
                 <label for="password">Password</label>
                 <input value={pass} onChange={(e)=>setPass(e.target.value)} required/>
