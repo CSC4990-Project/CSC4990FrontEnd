@@ -4,6 +4,7 @@ import About from "./Routes/About";
 import Login from "./Routes/Login";
 import Navbar from "./Routes/Navbar";
 import Ticket from "./Routes/Ticket";
+import Form from "./Routes/Form";
 function App() {
   return (
 
@@ -20,6 +21,9 @@ function App() {
               </Route>
                 <Route exact path="/ticket">
                     <Ticket/>
+                </Route>
+                <Route exact path="/create">
+                    <Form/>
                 </Route>
             </Switch>
           </div>

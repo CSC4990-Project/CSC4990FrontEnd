@@ -1,5 +1,5 @@
-import "../css/App2.css"
-import Footer from "../RouterPages/Footer";
+import "../App.css"
+
 
 const About = ()=>{
     return(
