@@ -5,16 +5,16 @@ import Login from "./Routes/Login";
 import Navbar from "./Routes/Navbar";
 import Ticket from "./Routes/Ticket";
 import Form from "./Routes/Form";
-function App() {
-  return (
 
+function App() {
+    return (
       <Router>
         <div className="App">
             <Navbar/>
-          <div className={"content"}>
+            <div className={"content"}>
             <Switch>
               <Route exact path="/">
-                <About/>
+                  <About/>
               </Route>
               <Route exact path="/login">
                 <Login/>
