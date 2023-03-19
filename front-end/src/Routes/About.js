@@ -1,9 +1,16 @@
 import "../App.css"
 
 
-const About = ()=>{
+
+const About = (props)=>{
+        if(!props.fresh){
+            props.setFresh(true)
+            window.location.reload(false);
+        }
     return(
         <div>
+
+            <h1>{props.name?'Hi ' + props.name:'you are not logged in'}</h1>
             <h1>About Page</h1>
             <p> Welcome to the Aurora university report a problem app. Here you can submit reports abouts
                 issues on campus by filling out a form. You can also keep track of the progress on any of your previously reported
