@@ -1,79 +1,63 @@
 import '../App.css';
-import { useState } from 'react';
-import ReactDOM  from 'react-dom';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-const Form = () => {
-  const [myProblem, setMyProblem] = useState('');
-  const [name, setName] = useState('');
-  const [building, setBuilding] = useState('');
-  const [room, setRoom] = useState('');
-  const [issue, setIssue] = useState('');
-  const [comments, setComments] = useState('');
+function Form() {
+  return(
+    <Form>
+      <h1 className='title_form'> Report-A-Problem </h1>
+      <Form.Group as = { Row } className = "mb-3" controlId="formRoom">
+        <Form.Label> Room: </Form.Label>
+          <Form.Control type = "room" placeholder = "Enter Room Number" />
+      </Form.Group>
 
-  const handleChange = (e) => {
-    setName(e.target.value);
-  }
-  const handleMyProblem = (e) => {
-    setMyProblem(e.target.value);
-  }
-  const handleBuilding = (e) => {
-    setBuilding(e.target.value);
-  }
-  const handleRoom = (e) => {
-    setRoom(e.target.value);
-  }
-  const handleIssue = (e) => {
-    setIssue(e.target.value);
-  }
-  const handleComments = (e) => {
-    setComments(e.target.value);
-  }
-  const handleSubmit=(e)=>{
-    if(name != name){
-      alert("Not in System")
-    } else{
-      alert('A form was sumbitted with Name: "' + name + '" ,Problem :"' + myProblem +'" and Building :"' + building + '"');
-    }
-  }
+      <Form.Group as = { Row } className = "building-name" controlId = "formGridBuilding">
+        <Form.Label> Building Name: </Form.Label>
+        <Form.Select aria-label = "Default select building">
+            <option> Building </option>
+            <option value = "1"> Dunham Hall </option>
+            <option value = "2"> Eckart Hall </option>
+            <option value = "3"> Stephens Hall </option>
+            <option value = "4"> Alumni Hall </option>
+            <option value = "5"> Birck Collaboration Center for Innovation </option>
+            <option value = "6"> Bookstore </option>
+            <option value = "7"> Institute for Collaboration </option>
+        </Form.Select>
+      </Form.Group>
 
-  return (
-    <div className="form">
-      <h2>Report Your Problem</h2>
-      <body className="form-content">
-        <form onSubmit={(e) => {handleSubmit(e)}}>
-          <label>
-            Name:
-            </label> <br />
-            <input type="text" value={name} required onChange={(e) => {handleChange(e)}} /><br />
-          <label>
-            Building:
-          </label> <br />
-          <input type="text" value={building} required onChange={(e) => {handleBuilding(e)}} /><br/>
-          <label>
-            Room Location:
-            </label><br />
-            <input type="text" value={room} required onChange={(e) => {handleRoom(e)}}/><br />
-          <label>
-            Issue:
-            </label><br />
-            <input type="text" value={issue} required onChange={(e) => {handleIssue(e)}} /><br />
-          <label>
-            Comments:
-            </label><br />
-            <input type="text" value={comments} required onChange={(e) => {handleComments(e)}} /><br />
-          <label>
-            Problem:
-          </label><br />
-          <select value={myProblem} onChange={handleMyProblem}>
-            <option value="Bathroom">Bathroom</option>
-            <option value="Classroom">Classroom</option>
-            <option value="Hallways">Halllways</option>
-          </select><br />
-          <input type="submit" value="Submit"/>
-        </form>
-      </body>
-    </div>
-  );
+      <Form.Group as = { Row } className = "issue" controlId = "formGridIssue">
+        <Form.Label> Issue Selction: </Form.Label>
+        <Form.Select aria-label = "Default select issue">
+          <option> Issue </option>
+          <option value = "1"> Paper Towels Missing </option>
+          <option value = "2"> No Soap </option> 
+          <option value = "3"> No Tissues </option> 
+          <option value = "4"> Spill </option> 
+          <option value = "5"> Clogged </option> 
+          <option value = "6"> Not Clean </option> 
+          <option value = "7"> Network/Web Issue </option> 
+          <option value = "8"> Equipment Issue </option> 
+          <option value = "9"> Something is Broken </option> 
+          <option value = "10"> Temperature Issue </option> 
+          <option value = "11"> Trash </option> 
+          <option value = "12"> Water Fountain/Refill </option>  
+        </Form.Select>
+      </Form.Group>
+
+      <Form.Group as = {Row} className = "button-info">
+        <Col sm = {{ span: 10, offset: 1 }}>
+          <div class = "btn-block">
+            <Button data-toggle = "button" aria-pressed="false" variant = "primary" type = "submit" size = "lg">
+              Submit
+            </Button>
+          </div>
+        </Col>
+      </Form.Group>
+       
+    </Form>
+  )
 }
 
 export default Form;
