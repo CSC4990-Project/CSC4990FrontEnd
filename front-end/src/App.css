@@ -30,43 +30,82 @@
 .button-content:hover {
   cursor: pointer;
 }
+/* About */
+.logged {
+  background-color: #ff5252;
+  display: inline-block;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 15px;
+  margin-top: 30px;
+}
+
+.title{
+  font-size: 50px;
+}
+
+.desc{
+  font-size: 16px;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.list, .list1, .list2, .list3, .list4{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 5px;
+  list-style-position: inside;
+}
 /* Form */
-.form, .form-content {
-  height: 300px;
-  border: solid #1f2bd8 2px;
+.title_form{
+  padding-top: 10px;
+}
+
+.mb-3 {
+  height: 100px;
+  border: 2px #1f2bd8 2px;
   margin: 2px 0;
-  padding: 5px 5px 5px 5px;
-  display: block;
-  font-size: 25px;
+  padding: 30px;
+  position: block;
+  font-size: 20px;
   text-align: center;
   margin: 0 0 .5vh 0;
-  width: 50%;
+  width: 100%;
+  justify-content: center;
 }
-.Login{
-  height: 400px;
-  border: solid #1f2bd8 2px;
-  margin: 100px 10px 10px 10px;
-  padding: 10px 10px 10px 10px;
-  display: inline-block;
-  font-size: 25px;
-  text-align: center;
-  width: 25%;
-}
-.Login input{
-  width: 90%;
-  padding: 6px 10px;
-  margin: auto;
-  border: 2px solid #ddd;
-  box-sizing: border-box;
-  display: block;
 
+.building-name {
+  width: 350px;
+  height: 75px;
+  border: 2px;
+  margin: 2px 0;
+  padding: 10px;
+  padding-left: 40px;
+  padding-right: 30px;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 0 .5vh 0;
+  width: 100%;
 }
-.Login button{
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 15px;
+
+.issue {
+  width: 350px;
+  height: 75px;
+  border: 2px;
+  margin: 2px 0;
+  padding: 30px;
+  padding-right: 20px;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 0 .5vh 0;
+  width: 100%;
+}
+
+
+.button-info{
+  padding-top: 50px;
+  padding-right: 40px;
 }
 
 
