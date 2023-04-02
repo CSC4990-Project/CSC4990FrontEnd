@@ -68,5 +68,10 @@
   cursor: pointer;
   font-size: 15px;
 }
+.LoginError{
+  color: red;
+  font-size: 15px;
+
+}
 
 

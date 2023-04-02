@@ -7,7 +7,7 @@ import "../App.css"
 const Login = (props)=>{
     const [email, setEmail] = useState("")
     const [pass,setPass] = useState("")
-    const [redirect,setRedirect] = useState(false)
+    const [loginErr,setLoginErr] = useState("")
 
     const submit = async (e) => {
         e.preventDefault()
@@ -23,13 +23,18 @@ const Login = (props)=>{
             })
         })
         const content = await response.json();
-        setRedirect(true)
-        props.setName(content.email)
+
+        if(content.message === "success"){
+            props.setName(content.email)
+            props.setRedirect(true)
+
+        }else{
+            setLoginErr(content.message)
+        }
     }
-if(redirect){
-    props.setFresh(false)
+if(props.redirect){
     return <Redirect to={"/"}/>
-}
+}else{
 return(
     <div style={{backgroundImage: `url(${background})`,
             width:'100%',
@@ -42,9 +47,11 @@ return(
                     <input type="password" className="form-control w-100 p-2 mb-3" value={pass} onChange={(e)=>setPass(e.target.value)}
                            placeholder="password" required/>
                     <button className="btn btn-primary w-100 btn-lg  p-2 mb-3" type="submit">Login</button>
+                   <span className="LoginError">{loginErr}</span>
                 </form>
             </div>
         </div>
     )
+    }
 }
 export default Login;

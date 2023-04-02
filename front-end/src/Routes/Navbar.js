@@ -12,33 +12,12 @@ const Navbar = (props) =>{
             headers:{'Content-Type':'application/json'},
             credentials:'include',
         })
-        props.setName('')
+        props.setName(undefined)
+        props.setRedirect(false)
     }
     let menu;
 
-    if(props.name ===undefined){
-        menu =(
-            <ul className="navbar-nav">
-                <li className="nav-item">
-                    <Link className="nav-link" to="/">Home</Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/create">Create Form</Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/ticket">Your Tickets</Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/login">Login</Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/register">Register</Link>
-                </li>
-            </ul>
-
-        )
-    }
-    else{
+    if(props.name !==undefined){
         menu =(
             <ul className="navbar-nav">
                 <li className="nav-item">
@@ -54,11 +33,22 @@ const Navbar = (props) =>{
                     <Link className="nav-link" to="/login" onClick={logout}>Logout</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/register">Register</Link>
+                    {props.permission ? <Link className="nav-link" to="/register">Register</Link>:null}
                 </li>
             </ul>
         )
+    }else{
+        menu=(<ul className="navbar-nav">
+            <li className="nav-item">
+                <Link className="nav-link" to="/">Home</Link>
+            </li>
+            <li className="nav-item">
+                <Link className="nav-link" to="/login">Login</Link>
+            </li>
+            </ul>
+        )
     }
+
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="collapse navbar-collapse" id="navbarNav">
@@ -68,4 +58,5 @@ const Navbar = (props) =>{
         </nav>
     )
 }
+
 export default Navbar;
