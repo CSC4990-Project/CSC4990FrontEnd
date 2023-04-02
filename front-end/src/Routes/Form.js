@@ -3,8 +3,9 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import {Redirect} from "react-router-dom";
 
-function Form(props) {
+const Create = (props)=> {
   if(props.name === undefined){
     return <Redirect to={"/login"}/>
   }
@@ -65,4 +66,4 @@ else{
   }
 }
 
-export default Form;
+export default Create;
