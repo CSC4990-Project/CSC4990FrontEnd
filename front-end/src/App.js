@@ -1,4 +1,4 @@
-import{BrowserRouter as Router,Route,Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import './App.css';
 import About from "./Routes/About";
 import Login from "./Routes/Login";
@@ -7,10 +7,13 @@ import Ticket from "./Routes/Ticket";
 import Form from "./Routes/Form";
 import Register from "./Routes/Register"
 import {useEffect, useState} from "react";
-
+//TO DO Force the page to redirect to login get type from server
 function App() {
-    const [name,setName] = useState('')
+    const [name,setName] = useState(undefined)
+    const [permission,setPermission] = useState(1)
     const [fresh,setFresh] = useState(true)
+    const [showReg,setShowReg] = useState(false);
+    const [redirect,setRedirect] = useState(false)
     useEffect(()=>{
         (
             async ()=>{
@@ -20,28 +23,26 @@ function App() {
                     credentials:'include',
                 })
                 const content = await response.json()
+                console.log(content)
                 setName(content.email)
+                setPermission(content.uType);
+                if(permission === 2){
+                    setShowReg(true);
+                }
             }
         )();
     });
     return (
       <Router>
         <div className="App">
-            <Navbar name={name} setName={setName}/>
+            <Navbar name={name} setName={setName} setRedirect={setRedirect} permission={showReg}/>
             <div className={"content"}>
             <Switch>
-              <Route exact path="/" component={()=><About name={name} fresh={fresh} setFresh={setFresh}/>}/>
-
-              <Route exact path="/login" component={()=><Login name={name} setName={setName} setFresh={setFresh}/>}/>
-                <Route exact path="/ticket">
-                    <Ticket/>
-                </Route>
-                <Route exact path="/create">
-                    <Form/>
-                </Route>
-                <Route exact path="/register">
-                    <Register/>
-                </Route>
+              <Route exact path="/" component={()=><About name={name} fresh={fresh} redirect={redirect} setFresh={setFresh}/>}/>
+                <Route exact path="/login" component={()=><Login name={name} setRedirect={setRedirect} redirect={redirect} setName={setName} setFresh={setFresh}/>}/>
+                <Route exact path="/ticket"component={()=><Ticket name={name}/>}/>
+                <Route exact path="/create" component={()=><Form name={name}/>} />
+                <Route exact path="/register" component={()=> <Register name={name}/>} />
             </Switch>
           </div>
         </div>

@@ -1,13 +1,11 @@
 import "../App.css"
 
-
-
 const About = (props)=>{
         if(!props.fresh){
             props.setFresh(true)
             window.location.reload(false);
         }
-    return(
+return(
         <div>
 
             <h1 className = "logged">{props.name?'Hi ' + props.name:'you are not logged in'}</h1>
@@ -27,6 +25,5 @@ const About = (props)=>{
             </p>
         </div>
     )
-
 }
 export default About;

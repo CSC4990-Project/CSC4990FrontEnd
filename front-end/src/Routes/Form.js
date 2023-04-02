@@ -4,7 +4,11 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-function Form() {
+function Form(props) {
+  if(props.name === undefined){
+    return <Redirect to={"/login"}/>
+  }
+else{
   return(
     <Form>
       <h1 className='title_form'> Report-A-Problem </h1>
@@ -58,6 +62,7 @@ function Form() {
        
     </Form>
   )
+  }
 }
 
 export default Form;
