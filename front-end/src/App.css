@@ -112,5 +112,30 @@
   font-size: 15px;
 
 }
+.Login{
+  height: 400px;
+  border: solid #1f2bd8 2px;
+  margin: 100px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
+  display: inline-block;
+  font-size: 25px;
+  text-align: center;
+  width: 25%;
+}
+.Login input{
+  width: 90%;
+  padding: 6px 10px;
+  margin: auto;
+  border: 2px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+.Login button{
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
 
 

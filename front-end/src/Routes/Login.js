@@ -3,7 +3,6 @@ import {Redirect} from "react-router-dom";
 import background from "../Images/auroraUniversity.jpg"
 import logo from "../Images/Aurora_University_logo.jpg"
 import "../App.css"
-//create functionality with db
 const Login = (props)=>{
     const [email, setEmail] = useState("")
     const [pass,setPass] = useState("")
@@ -33,6 +32,7 @@ const Login = (props)=>{
         }
     }
 if(props.redirect){
+    props.setRedirect(false)
     return <Redirect to={"/"}/>
 }else{
 return(
@@ -42,11 +42,11 @@ return(
             <div className="Login">
                 <img src={logo} alt='aurora university logo'/>
                 <form onSubmit={submit}>
-                    <input className="form-control w-100 p-2 mb-3 mt-4" value={email}onChange={(e)=> setEmail(e.target.value)}
+                    <input className="form-control h-50 w-75 p-2 mb-3 mt-4" value={email}onChange={(e)=> setEmail(e.target.value)}
                            placeholder="email" required/>
-                    <input type="password" className="form-control w-100 p-2 mb-3" value={pass} onChange={(e)=>setPass(e.target.value)}
+                    <input type="password" className="form-control h-50 w-75 p-2 mb-3" value={pass} onChange={(e)=>setPass(e.target.value)}
                            placeholder="password" required/>
-                    <button className="btn btn-primary w-100 btn-lg  p-2 mb-3" type="submit">Login</button>
+                    <button className="btn btn-primary h-50 w-75 btn-lg  p-2 mb-3" type="submit">Login</button>
                    <span className="LoginError">{loginErr}</span>
                 </form>
             </div>
