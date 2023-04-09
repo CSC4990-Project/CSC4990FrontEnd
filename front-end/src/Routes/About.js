@@ -6,7 +6,7 @@ const About = (props)=>{
             window.location.reload(false);
         }
 return(
-        <div>
+        <div className = "about_all">
 
             <h1 className = "logged">{props.name?'Hi ' + props.name:'you are not logged in'}</h1>
             <h1 className = "title">About Page</h1>
