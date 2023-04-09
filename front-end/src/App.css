@@ -31,6 +31,9 @@
   cursor: pointer;
 }
 /* About */
+.about_all {
+  background-color: #5c64d1;
+}
 .logged {
   background-color: #ff5252;
   display: inline-block;
@@ -41,10 +44,14 @@
 }
 
 .title{
+  background-color: #5c64d1;
+  color: white;
   font-size: 50px;
 }
 
 .desc{
+  background-color: #5c64d1;
+  color: white;
   font-size: 16px;
   text-align: center;
   padding-left: 20px;
@@ -52,6 +59,8 @@
 }
 
 .list, .list1, .list2, .list3, .list4{
+  background-color: #5c64d1;
+  color: white;
   padding-top: 5px;
   padding-bottom: 5px;
   margin: 5px;
