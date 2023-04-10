@@ -25,9 +25,11 @@ function App() {
                 const content = await response.json()
                 console.log(content)
                 setName(content.email)
-                setPermission(content.uType);
-                if(permission === 2){
+                setPermission(content.userType);
+                if(permission === "Admin"){
                     setShowReg(true);
+                }else{
+                    setShowReg(false)
                 }
             }
         )();
