@@ -1,6 +1,7 @@
 import {useState} from "react";
 import "../App.css"
 import {Redirect} from "react-router-dom";
+import background from "../Images/auroraUniversity.jpg";
 
 const Register = (props)=>{
     const [userType,setUserType] = useState("1")
@@ -32,6 +33,10 @@ const Register = (props)=>{
     else {
 
         return (
+            <div style={{backgroundImage: `url(${background})`,
+                width:'100%',
+                height:'600px'}}>
+
             <div className="Login">
                 <form onSubmit={submit}>
                     <h1 className="h3 mb-3 fw-normal m-2">please register</h1>
@@ -42,11 +47,12 @@ const Register = (props)=>{
                            onChange={(e) => setPassword(e.target.value)} required/>
                     <select defaultValue="1" className="form-select h-50 p-2 mb-3"
                             onChange={(e) => setUserType(e.target.value)}>
-                        <option value="1">user</option>
-                        <option value="2">admin</option>
+                        <option value="2">user</option>
+                        <option value="1">admin</option>
                     </select>
                     <button className="btn btn-primary h-50 w-75 btn-lg  p-2 mb-3" type="submit">submit</button>
                 </form>
+            </div>
             </div>
         );
     }
