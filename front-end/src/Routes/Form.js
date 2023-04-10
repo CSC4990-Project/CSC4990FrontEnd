@@ -13,11 +13,7 @@ else{
   return(
     <Form>
       <h1 className='title_form'> Report-A-Problem </h1>
-      <Form.Group as = { Row } className = "mb-3" controlId="formRoom">
-        <Form.Label> Room: </Form.Label>
-          <Form.Control type = "room" placeholder = "Enter Room Number" />
-      </Form.Group>
-
+    
       <Form.Group as = { Row } className = "building-name" controlId = "formGridBuilding">
         <Form.Label> Building Name: </Form.Label>
         <Form.Select aria-label = "Default select building">
@@ -29,6 +25,17 @@ else{
             <option value = "5"> Birck Collaboration Center for Innovation </option>
             <option value = "6"> Bookstore </option>
             <option value = "7"> Institute for Collaboration </option>
+        </Form.Select>
+      </Form.Group>
+
+      <Form.Group as = { Row } className = "category" controlId = "formGridCategory">
+        <Form.Label> Category Selection: </Form.Label>
+        <Form.Select aria-label = "Default Category">
+          <option> Category </option>
+          <option value = "1"> Bathroom </option>
+          <option value = "2"> Classroom </option>
+          <option value = "3"> Outside </option>
+          <option value = "4"> Hallway </option>
         </Form.Select>
       </Form.Group>
 
@@ -51,6 +58,23 @@ else{
         </Form.Select>
       </Form.Group>
 
+      <Form.Group as = { Row } className = "mb-3" controlId="formGridRoom">
+        <Form.Label> Room: </Form.Label>
+          <Form.Select aria-label = "Default Room Number">
+            <option> Room </option>
+            <option select = "1"> 204 </option>
+            <option select = "2"> 206 </option>
+            <option select = "3"> 208 </option>
+            <option select = "4"> 210 </option>
+            <option select = "5"> 212 </option>
+          </Form.Select>
+      </Form.Group>
+
+      <Form Group as = { Row } className="comment" controlId="formGridComment">
+        <Form.Label htmlFor="inputComment">Comments</Form.Label>
+        <Form.Control type = "text" id = "inputComment"/>
+      </Form>
+      
       <Form.Group as = {Row} className = "button-info">
         <Col sm = {{ span: 10, offset: 1 }}>
           <div class = "btn-block">
