@@ -33,6 +33,11 @@
 /* About */
 .about_all {
   background-color: #5c64d1;
+  height: 600px;
+}
+.about_all_ticket {
+  background-color: #5c64d1;
+  height: 1000px;
 }
 .logged {
   background-color: #ff5252;
@@ -47,6 +52,18 @@
   background-color: #5c64d1;
   color: white;
   font-size: 50px;
+}
+.labelLeft{
+  background-color: #5c64d1;
+  color: white;
+  font-size: 25px;
+
+}
+.row{
+  background-color: #5c64d1;
+}
+.col-4, .col-6{
+  background-color: #5c64d1;
 }
 
 .desc{
@@ -70,7 +87,13 @@
 .title_form{
   padding-top: 10px;
 }
-
+.backColor{
+  background-color: #5c64d1;
+}
+.building{
+  alignment: left;
+  width: 50%;
+}
 .building-name, .category, .issue {
   height: 75px;
   border: 2px;
@@ -142,5 +165,29 @@
   cursor: pointer;
   font-size: 15px;
 }
+.text{
+  text-align: left;
+}
+.table{
+  width: 100%;
+  border: 1px;
+  background-color: #5c64d1;
+}
+.tStripeEven{
+  background-color: #5c64d1 !important;
+}
+.tStripedOdd{
+  background-color: cornflowerblue !important;
+}
+.tColor{
+  color: white;
+}
+.link{
+  color: white;
+}
+.h3{
+  background-color: #5c64d1;
+}
+
 
 

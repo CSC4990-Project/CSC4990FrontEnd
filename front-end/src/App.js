@@ -7,6 +7,10 @@ import Ticket from "./Routes/Ticket";
 import Create from "./Routes/Form";
 import Register from "./Routes/Register"
 import {useEffect, useState} from "react";
+import AdminTicket from "./Routes/AdminTickets";
+import TicketDetails from "./Routes/TicketDetails";
+
+
 //TO DO Force the page to redirect to login get type from server
 function App() {
     const [name,setName] = useState(undefined)
@@ -26,7 +30,7 @@ function App() {
                 console.log(content)
                 setName(content.email)
                 setPermission(content.userType);
-                if(permission === "Admin"){
+                if(permission === "admin"){
                     setShowReg(true);
                 }else{
                     setShowReg(false)
@@ -34,6 +38,7 @@ function App() {
             }
         )();
     });
+
     return (
       <Router>
         <div className="App">
@@ -43,8 +48,12 @@ function App() {
               <Route exact path="/" component={()=><About name={name} fresh={fresh} redirect={redirect} setFresh={setFresh}/>}/>
                 <Route exact path="/login" component={()=><Login name={name} setRedirect={setRedirect} redirect={redirect} setName={setName} setFresh={setFresh}/>}/>
                 <Route exact path="/ticket"component={()=><Ticket name={name}/>}/>
+                <Route exact path="/tickets"component={()=><AdminTicket name={name}/>}/>
                 <Route exact path="/create" component={()=><Create name={name}/>} />
                 <Route exact path="/register" component={()=> <Register name={name}/>} />
+                <Route exact path="/ticket/:id" component={()=><TicketDetails auth={showReg} name={name}/>}/>
+
+
             </Switch>
           </div>
         </div>

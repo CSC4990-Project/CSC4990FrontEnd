@@ -2,10 +2,11 @@ import {Link, Redirect} from "react-router-dom";
 import {useEffect, useState} from "react";
 import "../App.css"
 
-const Ticket = (props)=> {
+const AdminTicket = (props)=> {
     const [data, setData] = useState([]);
+
     const fetchData = () => {
-        fetch("http://127.0.0.1:8000/api/userTicket/"+props.name, {
+        fetch("http://127.0.0.1:8000/api/tickets", {
             method:"GET",
             headers:{'Content-Type':'application/json'},
             credentials:'include',
@@ -30,11 +31,12 @@ const Ticket = (props)=> {
         return <Redirect to={"/login"}/>
     } else {
         return(<div className="about_all">
-            <h1 className="title">Your Tickets</h1>
+            <h1 className="title">All Tickets</h1>
             <table className="table">
                 <thead className={"tStripeEven"}>
                 <tr className="tStripeEven">
                     <th className="tColor">Ticket Id</th>
+                    <th className="tColor">Created By</th>
                     <th className="tColor">Time Submitted</th>
                     <th className="tColor">Building</th>
                     <th className="tColor">Room Number</th>
@@ -45,17 +47,18 @@ const Ticket = (props)=> {
                 </tr>
                 </thead>
                 <tbody>
-            {data.map((t,index)=>(
-                <tr className={`${index %2 ===0 ? "tStripeEven" : "tStripedOdd"}`} key={t.id}>
-                    <td className="tColor">{t.id}</td>
-                    <td className="tColor">{t.timeSubmit}</td>
-                    <td className="tColor">{t.building}</td>
-                    <td className="tColor">{t.roomNum}</td>
-                    <td className="tColor">{t.issue}</td>
-                    <td className="tColor">{t.category}</td>
-                    <td className="tColor">{t.progress}</td>
-                    <td className="tColor"><Link className={` link ${index %2 ===0 ? "tStripeEven" : "tStripedOdd"}`} to={`/ticket/${t.id}`}>Full Details</Link></td>
-                </tr>
+                {data.map((t,index)=>(
+                    <tr className={`${index %2 ===0 ? "tStripeEven" : "tStripedOdd"}`} key={t.id}>
+                        <td className="tColor">{t.id}</td>
+                        <td className="tColor">{t.user}</td>
+                        <td className="tColor">{t.timeSubmit}</td>
+                        <td className="tColor">{t.building}</td>
+                        <td className="tColor">{t.roomNum}</td>
+                        <td className="tColor">{t.issue}</td>
+                        <td className="tColor">{t.category}</td>
+                        <td className="tColor">{t.progress}</td>
+                        <td className="tColor"><Link className={` link ${index %2 ===0 ? "tStripeEven" : "tStripedOdd"}`} to={`/ticket/${t.id}`}>Details {t.id}</Link></td>
+                    </tr>
                 ))}
                 </tbody>
             </table>
@@ -63,4 +66,4 @@ const Ticket = (props)=> {
     }
 }
 
-export default Ticket;
+export default AdminTicket;
