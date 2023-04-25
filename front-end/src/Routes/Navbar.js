@@ -35,6 +35,9 @@ const Navbar = (props) =>{
                 <li className="nav-item">
                     {props.permission ? <Link className="nav-link" to="/register">Register</Link>:null}
                 </li>
+                <li className="nav-item">
+                    {props.permission ? <Link className="nav-link" to="/tickets">All Tickets</Link>:null}
+                </li>
             </ul>
         )
     }else{
