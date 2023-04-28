@@ -47,6 +47,7 @@ return(
                     <input type="password" className="form-control h-50 w-75 p-2 mb-3" value={pass} onChange={(e)=>setPass(e.target.value)}
                            placeholder="password" required/>
                     <button className="btn btn-primary h-50 w-75 btn-lg  p-2 mb-3" type="submit">Login</button>
+                    <br/>
                    <span className="LoginError">{loginErr}</span>
                 </form>
             </div>
