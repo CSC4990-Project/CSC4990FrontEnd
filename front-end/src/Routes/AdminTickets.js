@@ -25,7 +25,9 @@ const AdminTicket = (props)=> {
     useEffect(() => {
         fetchData();
     }, []);
-
+    if(data !== null) {
+        data.sort((a, b) => (a.id > b.id) ? 1 : -1)
+    }
 
     if (props.name === undefined) {
         return <Redirect to={"/login"}/>
@@ -47,7 +49,7 @@ const AdminTicket = (props)=> {
                 </tr>
                 </thead>
                 <tbody>
-                {data.map((t,index)=>(
+                {data !== null ? data.map((t,index)=>(
                     <tr className={`${index %2 ===0 ? "tStripeEven" : "tStripedOdd"}`} key={t.id}>
                         <td className="tColor">{t.id}</td>
                         <td className="tColor">{t.user}</td>
@@ -57,9 +59,9 @@ const AdminTicket = (props)=> {
                         <td className="tColor">{t.issue}</td>
                         <td className="tColor">{t.category}</td>
                         <td className="tColor">{t.progress}</td>
-                        <td className="tColor"><Link className={` link ${index %2 ===0 ? "tStripeEven" : "tStripedOdd"}`} to={`/ticket/${t.id}`}>Details {t.id}</Link></td>
+                        <td className="tColor"><Link className={` link ${index %2 ===0 ? "tStripeEven" : "tStripedOdd"}`} to={`/ticket/${t.id}`}>Full Details</Link></td>
                     </tr>
-                ))}
+                )): <h1 className="title about_all_ticket">No Tickets have been submitted</h1>}
                 </tbody>
             </table>
         </div>)

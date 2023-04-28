@@ -25,7 +25,9 @@ const Ticket = (props)=> {
         fetchData();
     }, []);
 
-
+    if(data !== null) {
+    data.sort((a, b) => (a.id > b.id) ? 1 : -1)
+    }
     if (props.name === undefined) {
         return <Redirect to={"/login"}/>
     } else {
@@ -45,7 +47,7 @@ const Ticket = (props)=> {
                 </tr>
                 </thead>
                 <tbody>
-            {data.map((t,index)=>(
+            {data !== null ? data.map((t,index)=>(
                 <tr className={`${index %2 ===0 ? "tStripeEven" : "tStripedOdd"}`} key={t.id}>
                     <td className="tColor">{t.id}</td>
                     <td className="tColor">{t.timeSubmit}</td>
@@ -56,7 +58,7 @@ const Ticket = (props)=> {
                     <td className="tColor">{t.progress}</td>
                     <td className="tColor"><Link className={` link ${index %2 ===0 ? "tStripeEven" : "tStripedOdd"}`} to={`/ticket/${t.id}`}>Full Details</Link></td>
                 </tr>
-                ))}
+                )): <h1 className="title about_all_ticket">No Tickets have been submitted</h1>}
                 </tbody>
             </table>
         </div>)

@@ -39,7 +39,7 @@ const Register = (props)=>{
 
             <div className="Login">
                 <form onSubmit={submit}>
-                    <h1 className="h3 mb-3 fw-normal m-2">please register</h1>
+                    <h1 className="h3 mb-3 fw-normal m-2 title">please register</h1>
                     <input type="email" className="form-control h-50 p-2 mb-3" placeholder="email address" required
                            value={email} onChange={(e) => setEmail(e.target.value)}/>
                     <input type="password" className="form-control h-50 p-2 mb-3" placeholder="password"
